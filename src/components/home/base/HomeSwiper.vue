@@ -13,25 +13,12 @@
 <script>
 export default {
     name:"HomeSwiper",
+    props:[
+        'swiperList'
+    ],
     data(){
         return{
-            "swiperList": [{
-                    "id": "0001",
-                    "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20195/7c7963c2b74b0f4f19ae3972f75b7f18.jpg_750x200_347ecfa5.jpg"
-                },{
-                    "id": "0002",
-                    "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/d7bbc21db442366a882e04ddc984669a.jpg_750x200_85e640d9.jpg"
-                },{
-                    "id": "0003",
-                    "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/87a224d0349d94a11e97f31aa1aba4f5.jpg_750x200_1f78af87.jpg"
-                },{
-                    "id": "0004",
-                    "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/5cfb89bebe41028d9b6732bcbe959cd6.jpg_750x200_4eb23790.jpg"
-                },{
-                    "id": "0005",
-                    "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/fd8c3e553ad9196058853d015bd67d29.jpg_750x200_2c5b094a.jpg"
-                }],
-            swiperOption: {
+           swiperOption: {
                  pagination: {
                     el: '.swiper-pagination',
                 },

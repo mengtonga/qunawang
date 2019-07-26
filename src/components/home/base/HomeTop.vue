@@ -5,9 +5,10 @@
             <i class="iconfont icon-sousuo"></i>
             <input type="text" placeholder="请输入地点">
         </div>
-        <div class="topright">
-            <span>吉林</span><i class="iconfont icon-jiantou"></i>
-        </div>
+        <router-link tag="div" to="city" class="topright">
+            <span>{{cityname}}</span>
+            <i class="iconfont icon-jiantou"></i>
+        </router-link>
     </div>
 </template>
 <script>
@@ -15,6 +16,14 @@ export default {
     name:"HomeTop",
     data(){
         return{}
+    },
+    computed:{
+        cityname(){
+            if(this.$store.state.cityname){
+                return this.$store.state.cityname
+            }
+            return "北京"
+        }
     }
 }
 </script>

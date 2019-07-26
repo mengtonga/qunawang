@@ -2,24 +2,24 @@
     <div class= "HomeFavorite">
         <h3 class="title">猜你喜欢</h3>
         <ul  >
-            <li class="item border-bottem" >
-                <img  class="item-img" src="http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_200x200_50323152.jpg" alt="">
+            <router-link tag="li" :to="{name:'detailFav',params:{id:item.id}}" class="item border-bottem" v-for="(item,index) in recommendList" :key="index" @click="gofavorate">
+                <img class="item-img" :src=item.imgUrl>
                 <div class= "item-info">
-                    <h4>橘子洲</h4>
+                    <h4>{{item.title}}</h4>
                     <div class='item-fav-info clearfix'>
                         <p class='item-fav-text'>
                             <i v-for='i in 5' class='iconfont icon-star'></i>
-                            <span class='item-fav-star' >
-                                <i v-for='i in 4' class='iconfont icon-star'></i>
+                            <span class='item-fav-star' :style="item.score|star" >
+                                <i v-for='i in 5' class='iconfont icon-star'></i>
                             </span>
                         </p>
                         <p class='item-text-right'>
-                            <span>2000条评论</span>
+                            <span>{{item.comment}}条评论</span>
                         </p>
                     </div>
-                    <div class="item-price">444</div>
+                    <div class="item-price">{{item.price|price}}</div>
                 </div>
-            </li>
+            </router-link>
         </ul>
     </div>
 </template>
@@ -27,16 +27,34 @@
 export default {
     name:"HomeFavorite",
     props:[
-        
+      "recommendList"
     ],
-    data(){
+    data(){ 
         return{}
+    },
+    filters:{
+      //星星评分
+      star(score){
+        return{
+          width:score*100/5+"%"
+        
+        }
+      },
+      //价格
+      price(p){
+        return '￥'+p+'元起'
+     }
+    },
+  methods:{
+    gofavorate(){
+      console.log(1)
     }
+  }
 }
 </script>
 <style lang='stylus' scoped>
   .border-bottom:before
-      border-color:#777
+      border-color:#000
   .title
     margin-top: .2rem
     line-height: .8rem

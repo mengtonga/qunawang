@@ -10,3 +10,11 @@ axios.interceptors.response.use(function (response) {
 export let getHome = ()=>{
     return axios.get("/static/mork/index.json")
 }
+//请求city组件的数据接口
+export let getCity = ()=>{
+  return axios.get("/static/mork/city.json")
+}
+//请求喜欢组件的数据接口
+export let getFavorate  = (id)=>{
+  return axios.get('/static/mork/detail/'+id+'.json')
+}
